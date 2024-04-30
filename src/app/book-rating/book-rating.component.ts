@@ -69,6 +69,19 @@ export class BookRatingComponent {
     return this.books[this.currentBookIndex];
   }
 
+  restart() {
+    this.currentBookIndex = 0;
+    this.books.forEach((book) => (book.hasRated = false));
+  }
+
+  finish() {
+    alert('Стига ти толкоз!');
+  }
+
+  get allBooksRated(): boolean {
+    return this.books.every((book) => book.hasRated);
+  }
+
   rateBook(rating: number) {
     this.currentBook.ratings.push(rating);
     this.currentBook.rating =

@@ -1,4 +1,4 @@
-<div *ngIf="currentBook">
+<div *ngIf="currentBook && !allBooksRated">
   <h2>{{ currentBook.title }}</h2>
   <p>{{ currentBook.description }}</p>
   <p>
@@ -35,4 +35,9 @@
       Update
     </button>
   </div>
+</div>
+
+<div *ngIf="allBooksRated">
+  <button class="restart" (click)="restart()">Дай пак!</button>
+  <button class="finish" (click)="finish()">Писна ми</button>
 </div>
