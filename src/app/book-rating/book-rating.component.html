@@ -1,3 +1,8 @@
+<div *ngIf="allBooksRated">
+  <button class="restart" (click)="restart()">Дай пак!</button>
+  <button class="finish" (click)="finish()">Писна ми</button>
+</div>
+
 <div *ngIf="currentBook && !allBooksRated">
   <h2>{{ currentBook.title }}</h2>
   <p>{{ currentBook.description }}</p>
@@ -16,7 +21,7 @@
     </button>
   </div>
 
-  <div *ngIf="currentBook.hasRated">
+  <div *ngIf="currentBook.rating > 0">
     <h2>Update this book</h2>
     <input [(ngModel)]="currentBook.title" placeholder="Title" />
     <input [(ngModel)]="currentBook.description" placeholder="Description" />
@@ -35,9 +40,4 @@
       Update
     </button>
   </div>
-</div>
-
-<div *ngIf="allBooksRated">
-  <button class="restart" (click)="restart()">Дай пак!</button>
-  <button class="finish" (click)="finish()">Писна ми</button>
 </div>
