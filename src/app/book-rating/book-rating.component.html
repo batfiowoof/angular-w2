@@ -1,11 +1,19 @@
 <div *ngIf="allBooksRated">
+  <h2>Свърши се!</h2>
   <button class="restart" (click)="restart()">Дай пак!</button>
-  <button class="finish" (click)="finish()">Писна ми</button>
+  <button class="finish" (click)="finish()">Писна ми...</button>
 </div>
 
 <div *ngIf="currentBook && !allBooksRated">
   <h2>{{ currentBook.title }}</h2>
   <p>{{ currentBook.description }}</p>
+  <a href="{{ currentBook.link }}"
+    ><img
+      src="{{ currentBook.image }}"
+      alt="Book cover"
+      height="350"
+      width="250"
+  /></a>
   <p>
     Authors:
     <span *ngFor="let author of currentBook.authors; let isLast = last"
@@ -28,12 +36,14 @@
     <div *ngFor="let author of currentBook.authors; let i = index">
       <input [(ngModel)]="currentBook.authors[i]" placeholder="Author" />
     </div>
+    <input [(ngModel)]="currentBook.image" placeholder="Image" />
     <button
       (click)="
         updateBook(
           currentBook.title,
           currentBook.description,
-          currentBook.authors
+          currentBook.authors,
+          currentBook.image
         )
       "
     >

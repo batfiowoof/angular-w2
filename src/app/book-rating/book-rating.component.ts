@@ -6,6 +6,8 @@ interface Book {
   title: string;
   description: string;
   authors: string[];
+  image: string;
+  link: string;
   rating: number;
   ratings: number[];
   hasRated: boolean;
@@ -22,6 +24,9 @@ export class BookRatingComponent {
   books: Book[] = [
     {
       title: 'To Kill a Mockingbird',
+      link: 'https://en.wikipedia.org/wiki/To_Kill_a_Mockingbird',
+      image:
+        'https://m.media-amazon.com/images/I/71FxgtFKcQL._AC_UF1000,1000_QL80_.jpg',
       description:
         'The unforgettable novel of a childhood in a sleepy Southern town and the crisis of conscience that rocked it.',
       authors: ['Harper Lee'],
@@ -31,7 +36,11 @@ export class BookRatingComponent {
     },
     {
       title: '1984',
+      link: 'https://en.wikipedia.org/wiki/Nineteen_Eighty-Four',
+      image:
+        'https://covers.storytel.com/jpg-640/9782291963134.7066841c-347d-4c86-b162-aaf158fc3982?optimize=high&quality=70',
       description: 'A dystopian social science fiction novel by George Orwell.',
+
       authors: ['George Orwell'],
       rating: 0,
       ratings: [],
@@ -39,6 +48,9 @@ export class BookRatingComponent {
     },
     {
       title: 'The Great Gatsby',
+      link: 'https://en.wikipedia.org/wiki/The_Great_Gatsby',
+      image:
+        'https://m.media-amazon.com/images/I/81QuEGw8VPL._AC_UF1000,1000_QL80_.jpg',
       description:
         "F. Scott Fitzgerald's third book, stands as the supreme achievement of his career.",
       authors: ['F. Scott Fitzgerald'],
@@ -48,6 +60,9 @@ export class BookRatingComponent {
     },
     {
       title: 'Pride and Prejudice',
+      link: 'https://en.wikipedia.org/wiki/Pride_and_Prejudice',
+      image:
+        'https://almabooks.com/wp-content/uploads/2016/10/9781847493699.jpg',
       description: 'An 1813 romantic novel of manners written by Jane Austen.',
       authors: ['Jane Austen'],
       rating: 0,
@@ -56,6 +71,9 @@ export class BookRatingComponent {
     },
     {
       title: "Harry Potter and the Philosopher's Stone",
+      link: 'https://en.wikipedia.org/wiki/Harry_Potter_and_the_Philosopher%27s_Stone',
+      image:
+        'https://m.media-amazon.com/images/I/81q77Q39nEL._AC_UF894,1000_QL80_DpWeblab_.jpg',
       description:
         'The first novel in the Harry Potter series written by J.K. Rowling.',
       authors: ['J.K. Rowling'],
@@ -91,9 +109,15 @@ export class BookRatingComponent {
     this.currentBookIndex = (this.currentBookIndex + 1) % this.books.length;
   }
 
-  updateBook(title: string, description: string, authors: string[]) {
+  updateBook(
+    title: string,
+    description: string,
+    authors: string[],
+    image: string
+  ) {
     this.currentBook.title = title;
     this.currentBook.description = description;
     this.currentBook.authors = authors;
+    this.currentBook.image = image;
   }
 }
